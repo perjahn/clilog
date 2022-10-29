@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     unixtime = time(NULL);
     t = gmtime(&unixtime);
     printf("%04d-%02d-%02d %02d:%02d:%02d: ",
-           t->tm_year + 1900, t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+           t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
 
     do
     {
@@ -55,15 +55,15 @@ int main(int argc, char *argv[])
             unixtime = time(NULL);
             t = gmtime(&unixtime);
             printf("\r%04d-%02d-%02d %02d:%02d:%02d\r\n%04d-%02d-%02d %02d:%02d:%02d: ",
-                   t->tm_year + 1900, t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec,
-                   t->tm_year + 1900, t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+                   t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec,
+                   t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
         }
         else if (c == '\r')
         {
             unixtime = time(NULL);
             t = gmtime(&unixtime);
             printf("\r%04d-%02d-%02d %02d:%02d:%02d: ",
-                   t->tm_year + 1900, t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+                   t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
         }
         else if (c < 32 && c != 9)
         {
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
                 unixtime = time(NULL);
                 t = gmtime(&unixtime);
                 printf("\033[s\r%04d-%02d-%02d %02d:%02d:%02d\033[u.",
-                       t->tm_year + 1900, t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+                       t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
             }
             else
             {
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
                 unixtime = time(NULL);
                 t = gmtime(&unixtime);
                 printf("\033[s\r%04d-%02d-%02d %02d:%02d:%02d\033[u%c",
-                       t->tm_year + 1900, t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec, c);
+                       t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec, c);
             }
             else
             {
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
     } while ((c = getchar()) >= 0);
 
     printf("\r%04d-%02d-%02d %02d:%02d:%02d\n",
-           t->tm_year + 1900, t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+           t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
 
     return 0;
 }
