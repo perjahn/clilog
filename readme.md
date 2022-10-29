@@ -1,3 +1,5 @@
+[![Build](https://github.com/perjahn/clilog/workflows/Build/badge.svg)](https://github.com/perjahn/clilog/actions?query=workflow%3A%22Build%22)
+
 clilog - adds log times to cli commands
 
 When piping multiline output to clilog it will be printed with a prefix of each line,
